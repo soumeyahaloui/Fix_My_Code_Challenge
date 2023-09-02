@@ -1,14 +1,27 @@
+#!/usr/bin/python3
 def fizzbuzz(n):
     for i in range(1, n + 1):
         if i % 3 == 0 and i % 5 == 0:
-            print("FizzBuzz")
+            print("FizzBuzz", end=' ')
         elif i % 3 == 0:
-            print("Fizz")
+            print("Fizz", end=' ')
         elif i % 5 == 0:
-            print("Buzz")
+            print("Buzz", end=' ')
         else:
-            print(i)
+            print(i, end=' ')
 
 if __name__ == "__main__":
-    n = int(input("Enter a number: "))
+    import sys
+    if len(sys.argv) != 2:
+        print("Usage: ./0-fizzbuzz.py <number>")
+        sys.exit(1)
+
+    try:
+        n = int(sys.argv[1])
+    except ValueError:
+        print("Please enter a valid number.")
+        sys.exit(1)
+
     fizzbuzz(n)
+    print()
+
